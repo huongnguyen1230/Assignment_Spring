@@ -21,9 +21,12 @@ public class RoadName {
     private String roadName;
     private LocalDate createAt;
     private String description;
-    private int status;
+    private String status;
+
+    @Column(name = "district_id")
+    private Integer district_id;
 
     @ManyToOne
-    @JoinColumn(name = "district_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "district_id", insertable = false, updatable = false)
     private District district;
 }

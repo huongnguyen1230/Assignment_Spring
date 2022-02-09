@@ -17,9 +17,8 @@ public class District {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String districtName;
-    private String description;
 
-    @OneToMany(mappedBy = "district")
+    @OneToMany(mappedBy = "district", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<RoadName> roadNameSet;
 }
